@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proxy</title>
+<style>
+  body{font-family:-apple-system,system-ui,sans-serif;background:#111;color:#eee;display:flex;min-height:100vh;align-items:center;justify-content:center;margin:0}
+  form{width:min(92vw,420px);display:flex;flex-direction:column;gap:12px}
+  input,button{font-size:18px;padding:14px;border-radius:12px;border:0}
+  input{background:#222;color:#fff}
+  button{background:#e60023;color:#fff;font-weight:600}
+</style>
+</head>
+<body>
+<form onsubmit="go(event)">
+  <h2>Seite öffnen</h2>
+  <input id="u" placeholder="pinterest.com" autocapitalize="off" autocorrect="off" required>
+  <button>Los</button>
+</form>
+<script>
+function go(e){e.preventDefault();location.href="/api/proxy?url="+encodeURIComponent(document.getElementById("u").value.trim())}
+</script>
+</body>
+</html>
